@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import Profile from "@/components/profile";
 
 export default async function Home() {
+  // know if user is signed in from server component
   const session = await auth();
   return (
     <div className="gap-4 flex m-5">
