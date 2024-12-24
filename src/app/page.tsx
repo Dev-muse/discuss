@@ -1,24 +1,18 @@
 import * as actions from "@/actions";
 import { auth } from "@/auth";
+import TopicCreateForm from "@/components/topics/topic-create-form";
 import { Button } from "@nextui-org/button";
 
-export default async function Home() {
-  // know if user is signed in from server component
-  const session = await auth();
+export default function Home() {
   return (
-    <div className="gap-4 flex m-5">
-      <form action={actions.signIn}>
-        <Button type="submit">Sign In</Button>
-      </form>
-      <form action={actions.signOut}>
-        <Button type="submit">Sign Out</Button>
-      </form>
+    <div className="grid grid-cols-4 p-4 gap-4">
+      <div className="col-span-3">
+        <h1 className="text-xl m-2">Top Posts</h1>
+      </div>
 
-      {session?.user ? (
-        <div>Welcome {session.user.name} </div>
-      ) : (
-        <div>Signed out</div>
-      )}
+      <div>
+        <TopicCreateForm />
+      </div>
     </div>
   );
 }
