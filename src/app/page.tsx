@@ -1,14 +1,13 @@
-import { Button } from "@nextui-org/button";
 import * as actions from "@/actions";
 import { auth } from "@/auth";
-import Profile from "@/components/profile";
+import { Button } from "@nextui-org/button";
 
 export default async function Home() {
   // know if user is signed in from server component
   const session = await auth();
   return (
     <div className="gap-4 flex m-5">
-      <form action={actions.SignIn}>
+      <form action={actions.signIn}>
         <Button type="submit">Sign In</Button>
       </form>
       <form action={actions.signOut}>
@@ -20,8 +19,6 @@ export default async function Home() {
       ) : (
         <div>Signed out</div>
       )}
-
-      <Profile />
     </div>
   );
 }
